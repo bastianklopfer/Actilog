@@ -1,0 +1,45 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<!-- A 'parent' preference, which enables/disables child preferences (below)
+         when checked/unchecked. -->
+<SwitchPreference
+    android:defaultValue="true"
+    android:key="notifications_new_message"
+    android:title="@string/pref_title_new_message_notifications"
+    android:summary="By defining a chore day, Actilog will only consider activities in the set chore day when reviewing your activities." />
+
+<!-- Allows the user to choose a ringtone in the 'notification' category. -->
+<!-- NOTE: This preference will be enabled only when the checkbox above is checked. -->
+<!-- NOTE: RingtonePreference's summary should be set to its value by the activity code. -->
+    <ListPreference
+        android:defaultValue="7:00"
+        android:entries="@array/chore_day_start"
+        android:entryValues="@array/chore_day_start_values"
+        android:key="start"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_start_time"
+        android:dependency="notifications_new_message"
+        android:summary="%s" />
+    />
+
+    <ListPreference
+        android:defaultValue="17:00"
+        android:entries="@array/chore_day_end"
+        android:entryValues="@array/chore_day_end_values"
+        android:key="end"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_end_time"
+        android:dependency="notifications_new_message"
+        android:summary="%s" />
+
+    />
+
+
+
+<!-- NOTE: This preference will be enabled only when the checkbox above is checked. -->
+
+
+</PreferenceScreen>

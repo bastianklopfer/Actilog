@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">Actilog</string>
+    <string name="choose_category">Choose Category</string>
+    <string name="choose_activity">Choose Activity</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_mail">Receive weekly summary</string>
+
+    <string name="pref_title_social_recommendations">Receive weekly summary</string>
+    <string name="pref_description_social_recommendations">By activating, the app will send you a weekly summary of your activities via email.</string>
+
+    <string name="pref_title_display_name">Your Name</string>
+    <string name="pref_default_display_name">Enter your name</string>
+
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_pin">Secure your data by PIN</string>
+
+    <string name="pref_start_time">Start time chore day</string>
+    <string name="pref_end_time">End time chore day</string>
+
+    <string-array name="chore_day_start">
+        <item>5:00</item>
+        <item>5:30</item>
+        <item>6:00</item>
+        <item>6:30</item>
+        <item>7:00</item>
+        <item>7:30</item>
+        <item>8:00</item>
+        <item>8:30</item>
+        <item>9:00</item>
+        <item>9:30</item>
+        <item>10:00</item>
+        <item>10:30</item>
+    </string-array>
+
+    <string-array name="chore_day_start_values">
+        <item>500</item>
+        <item>530</item>
+        <item>600</item>
+        <item>630</item>
+        <item>700</item>
+        <item>730</item>
+        <item>800</item>
+        <item>830</item>
+        <item>900</item>
+        <item>930</item>
+        <item>1000</item>
+        <item>1030</item>
+    </string-array>
+
+
+    <string-array name="chore_day_end">
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>16:00</item>
+        <item>16:30</item>
+        <item>17:00</item>
+        <item>17:30</item>
+        <item>18:00</item>
+        <item>18:30</item>
+        <item>19:00</item>
+        <item>19:30</item>
+        <item>20:00</item>
+        <item>20:30</item>
+    </string-array>
+
+    <string-array name="chore_day_end_values">
+        <item>1500</item>
+        <item>1530</item>
+        <item>1600</item>
+        <item>1630</item>
+        <item>1700</item>
+        <item>1730</item>
+        <item>1800</item>
+        <item>1830</item>
+        <item>1900</item>
+        <item>1930</item>
+        <item>2000</item>
+        <item>2030</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Chore Day -->
+    <string name="pref_header_chore">Define a chore day</string>
+
+    <string name="pref_title_new_message_notifications">Define a chore day</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+</resources>

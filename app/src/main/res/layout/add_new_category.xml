@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Add new Category" />
+
+    <EditText
+        android:id="@+id/newCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Category Name" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+        android:text="Parent Category (optional):" />
+
+    <Spinner
+        android:id="@+id/parentSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_marginTop="15dp"
+        />
+
+    <Button
+        android:id="@+id/addCatName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Category"
+        android:background="@color/okcolor"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+
+
+        />
+</LinearLayout>

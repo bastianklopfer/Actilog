@@ -1,0 +1,20 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="com.example.bastian.actilog.SettingsActivity$GeneralPreferenceFragment"
+        android:icon="@drawable/ic_email_black_24dp"
+        android:title="@string/pref_header_mail" />
+
+    <header
+        android:fragment="com.example.bastian.actilog.SettingsActivity$NotificationPreferenceFragment"
+        android:icon="@drawable/ic_tune_black_24dp"
+        android:title="@string/pref_header_chore" />
+
+    <header
+        android:fragment="com.example.bastian.actilog.SettingsActivity$DataSyncPreferenceFragment"
+        android:icon="@drawable/ic_security_black_24dp"
+        android:title="@string/pref_header_pin" />
+
+</preference-headers>
