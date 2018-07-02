@@ -463,7 +463,7 @@ public class AddNew extends AppCompatActivity implements
                 return super.onOptionsItemSelected(item);
 
     }
-public void CreateNewCategory(){
+    public void CreateNewCategory(){
     addCatBtn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -533,4 +533,13 @@ public void CreateNewCategory(){
     });
 
 }
+@Override
+    public void onBackPressed()
+    {
+
+       Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+
+    }
+
 }

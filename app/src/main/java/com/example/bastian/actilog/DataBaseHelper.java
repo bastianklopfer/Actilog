@@ -122,6 +122,19 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return db.rawQuery("select * from " + TABLE_NAME, null);
     }
 
+    public Cursor readActivitiesbyDate ()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from " + TABLE_NAME +" order by " +COL_4 +" desc, " + COL_5 + " desc", null);
+    }
+
+    public Cursor getTimeSpentCategories(String startDate, String endDate)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from " + TABLE_NAME +" where " +COL_4+ " between " +startDate+ " and " +endDate, null);
+    }
+
+
 }
 
 
