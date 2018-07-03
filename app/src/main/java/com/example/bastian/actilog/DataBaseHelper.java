@@ -122,6 +122,12 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return db.rawQuery("select * from " + TABLE_NAME, null);
     }
 
+    public Cursor readActivityNamesByCategory (int id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("select * from " + TABLE_NAME +" where " +COL_2 + " = " + id, null);
+    }
+
     public Cursor readActivitiesbyDate ()
     {
         SQLiteDatabase db = this.getWritableDatabase();

@@ -32,7 +32,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Category\n"
+                android:text="\t%\t\t\n"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\tHours spent\t\t"
+                android:text="Hours spent\t\t"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\t\t%"
+                android:text="Category"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
@@ -61,7 +61,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -73,7 +73,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/textView11"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -84,7 +86,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -96,7 +98,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/textView21"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -107,7 +111,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/textView33"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -119,7 +123,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/textView31"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -130,7 +136,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView41"
+                android:id="@+id/textView43"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -142,7 +148,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView43"
+                android:id="@+id/textView41"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -153,7 +161,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView51"
+                android:id="@+id/textView53"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -165,7 +173,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView53"
+                android:id="@+id/textView51"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -176,7 +186,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView61"
+                android:id="@+id/textView63"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -188,7 +198,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView63"
+                android:id="@+id/textView61"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -199,7 +211,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView71"
+                android:id="@+id/textView73"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -211,7 +223,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView73"
+                android:id="@+id/textView71"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -222,7 +236,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView81"
+                android:id="@+id/textView83"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -234,7 +248,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView83"
+                android:id="@+id/textView81"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -245,7 +261,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView91"
+                android:id="@+id/textView93"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -257,7 +273,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView93"
+                android:id="@+id/textView91"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -268,7 +286,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView101"
+                android:id="@+id/textView103"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -280,7 +298,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView103"
+                android:id="@+id/textView101"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -291,7 +311,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView111"
+                android:id="@+id/textView113"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -303,7 +323,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView113"
+                android:id="@+id/textView111"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -314,7 +336,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView121"
+                android:id="@+id/textView123"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />
@@ -326,7 +348,9 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView123"
+                android:id="@+id/textView121"
+                android:onClick="onClick"
+                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp" />

@@ -1,5 +1,6 @@
 package com.example.bastian.actilog;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Typeface;
@@ -7,9 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashSet;
 
 import static java.lang.Math.round;
 
@@ -18,6 +25,8 @@ public class ResultActivity extends AppCompatActivity {
     DataBaseHelper myDb;
     float [] proportions = new float[99];
     int [] parentDurations = new int[98];
+    int [] durationsByTable = new int [99];
+    int [] IDsByTable = new int [99];
     String [] categoryArray;
     String [] childNameArray;
     String[] idArray;
@@ -93,6 +102,7 @@ public class ResultActivity extends AppCompatActivity {
 
         getData();
         displayData();
+        showCategory();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -226,12 +236,23 @@ public class ResultActivity extends AppCompatActivity {
         for (int i =0; i<x; i++) {
 
             fillRow(r,categoryArray[k], parentDurations[k],proportions[k],true);
+            durationsByTable[r] = parentDurations[k];
+            IDsByTable [r] = Integer.parseInt(idArray[k]);
             r++;
             k++;
             for (int j =0; j<parentArray.length; j++) {
                 if (idArray[i].equals(parentArray[j]))
                 {
-                    fillRow(r,"\t\t\t\t" + childNameArray[j], parentDurations[Integer.parseInt(childArray[j])],9999,false);
+                    int duration = 0;
+                    for (int x = 0; x< idArray.length; x++)
+                    {if (idArray[x].equals(childArray[j])){
+                        duration = parentDurations[x];
+                    }
+                    }
+
+                    fillRow(r,"\t\t" + childNameArray[j], duration,9999,false);
+                    durationsByTable[r] = duration;
+                    IDsByTable [r] = Integer.parseInt(childArray[j]);
                     r++;
 
                 }
@@ -241,9 +262,27 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     public void fillRow(int rowNr, String Name, int duration, float proportion, boolean bold){
+
+        int hours = duration / 60;
+        int minutes = duration - hours * 60;
+
+        String Duration = new String();
+
+
+        if (String.valueOf(hours).length() == 1 && String.valueOf(minutes).length() == 1) {
+            Duration = "\t\t\t0" + Integer.toString(hours) + ":0" + Integer.toString(minutes);
+        } else if (Integer.toString(hours).length() == 2 && Integer.toString(minutes).length() == 1) {
+            Duration = "\t\t\t" +Integer.toString(hours) + ":0" + Integer.toString(minutes);
+        } else if (Integer.toString(hours).length() == 1 && Integer.toString(minutes).length() == 2) {
+            Duration = "\t\t\t0" + Integer.toString(hours) + ":" + Integer.toString(minutes);
+        } else {
+            Duration = "\t\t\t" +Integer.toString(hours) + ":" + Integer.toString(minutes);
+        }
+
+
         switch (rowNr){
             case 1: tv11.setText(Name);
-                    tv12.setText("\t"+duration);
+                    tv12.setText(Duration);
                     if (proportion != 9999) {
                         tv13.setText(String.valueOf(proportion) + "%");
                     }
@@ -255,7 +294,7 @@ public class ResultActivity extends AppCompatActivity {
                     }
                     break;
             case 2: tv21.setText(Name);
-                tv22.setText("\t"+duration);
+                tv22.setText(Duration);
                 if (proportion != 9999) {
                     tv23.setText(String.valueOf(proportion) + "%");
                 }
@@ -268,7 +307,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 3: tv31.setText(Name);
-                tv32.setText("\t"+duration);
+                tv32.setText(Duration);
                 if (proportion != 9999) {
                     tv33.setText(String.valueOf(proportion) + "%");
                 }
@@ -281,7 +320,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 4: tv41.setText(Name);
-                tv42.setText("\t"+duration);
+                tv42.setText(Duration);
                 if (proportion != 9999) {
                     tv43.setText(String.valueOf(proportion) + "%");
                 }
@@ -294,7 +333,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 5: tv51.setText(Name);
-                tv52.setText("\t"+duration);
+                tv52.setText(Duration);
                 if (proportion != 9999) {
                     tv53.setText(String.valueOf(proportion) + "%");
                 }
@@ -307,7 +346,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 6: tv61.setText(Name);
-                tv62.setText("\t"+duration);
+                tv62.setText(Duration);
                 if (proportion != 9999) {
                     tv63.setText(String.valueOf(proportion) + "%");
                 }
@@ -320,7 +359,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 7: tv71.setText(Name);
-                tv72.setText("\t"+duration);
+                tv72.setText(Duration);
                 if (proportion != 9999) {
                     tv73.setText(String.valueOf(proportion) + "%");
                 }
@@ -333,7 +372,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 8: tv81.setText(Name);
-                tv82.setText("\t"+duration);
+                tv82.setText(Duration);
                 if (proportion != 9999) {
                     tv83.setText(String.valueOf(proportion) + "%");
                 }
@@ -346,7 +385,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 9: tv91.setText(Name);
-                tv92.setText("\t"+duration);
+                tv92.setText(Duration);
                 if (proportion != 9999) {
                     tv93.setText(String.valueOf(proportion) + "%");
                 }
@@ -359,7 +398,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 10: tv101.setText(Name);
-                tv102.setText("\t"+duration);
+                tv102.setText(Duration);
                 if (proportion != 9999) {
                     tv103.setText(String.valueOf(proportion) + "%");
                 }
@@ -372,7 +411,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 11: tv111.setText(Name);
-                tv112.setText("\t"+duration);
+                tv112.setText(Duration);
                 if (proportion != 9999) {
                     tv113.setText(String.valueOf(proportion) + "%");
                 }
@@ -385,7 +424,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 break;
             case 12: tv121.setText(Name);
-                tv122.setText("\t"+duration);
+                tv122.setText(Duration);
                 if (proportion != 9999) {
                     tv123.setText(String.valueOf(proportion) + "%");
                 }
@@ -411,5 +450,227 @@ public class ResultActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    public void showCategory ()
+    {
+        tv11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setTexts(1);
+            }
+        });
+        tv21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(2);
+            }
+        });
+        tv31.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(3);
+            }
+        });
+        tv41.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(4);
+            }
+        });
+        tv51.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(5);
+            }
+        });
+        tv61.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(6);
+            }
+        });
+        tv71.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(7);
+            }
+        });
+        tv81.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(8);
+            }
+        });
+        tv91.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(9);
+            }
+        });
+        tv101.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(10);
+            }
+        });
+        tv111.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(11);
+            }
+        });
+        tv121.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTexts(12);
+            }
+        });
+    }
+    public void setTexts (int row)
+    {
+        AlertDialog.Builder mBuilder=new AlertDialog.Builder(ResultActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.show_category, null);
+        final TextView Header = (TextView) mView.findViewById(R.id.header);
+        final TextView TableHeader = (TextView) mView.findViewById(R.id.tableHeader);
+        final TextView Table = (TextView) mView.findViewById(R.id.table);
+        final TextView Table2Header = (TextView) mView.findViewById(R.id.table2Header);
+        final TextView Table2 = (TextView) mView.findViewById(R.id.table2);
+
+        mBuilder.setView(mView);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+
+        StringBuffer bufferTable = new StringBuffer();
+        StringBuffer bufferTable2 = new StringBuffer();
+
+        switch (row){
+            case 1:        Header.setText(tv11.getText());
+                break;
+            case 2:        Header.setText(tv21.getText());
+                break;
+            case 3:        Header.setText(tv31.getText());
+                break;
+            case 4:        Header.setText(tv41.getText());
+                break;
+            case 5:        Header.setText(tv51.getText());
+                break;
+            case 6:        Header.setText(tv61.getText());
+                break;
+            case 7:        Header.setText(tv71.getText());
+                break;
+            case 8:        Header.setText(tv81.getText());
+                break;
+            case 9:        Header.setText(tv91.getText());
+                break;
+            case 10:        Header.setText(tv101.getText());
+                break;
+            case 11:        Header.setText(tv111.getText());
+                break;
+            case 12:        Header.setText(tv121.getText());
+                break;
+        }
+        //get the ID of the selected category:
+
+        int k=0;
+        //does the chosen category have subcategories? (does catID appear in parentID?)
+        for (int j =0; j<parentArray.length; j++) //will go as many times as there are subcategories
+        //checks if selected category is "parent category":
+
+        {
+            if (IDsByTable[row] == Integer.parseInt(parentArray[j]))
+            {
+                TableHeader.setText("Subcategories:\n\t\t%\t\t\tHours spent\t\tName");
+
+                int hours = durationsByTable[row+k+1] / 60;
+                int minutes = durationsByTable[row+k+1] - hours * 60;
+                String Duration = new String();
+                if (String.valueOf(hours).length() == 1 && String.valueOf(minutes).length() == 1) {
+                    Duration = "0" + Integer.toString(hours) + ":0" + Integer.toString(minutes);
+                } else if (Integer.toString(hours).length() == 2 && Integer.toString(minutes).length() == 1) {
+                    Duration = Integer.toString(hours) + ":0" + Integer.toString(minutes);
+                } else if (Integer.toString(hours).length() == 1 && Integer.toString(minutes).length() == 2) {
+                    Duration = "0" + Integer.toString(hours) + ":" + Integer.toString(minutes);
+                } else {
+                    Duration = Integer.toString(hours) + ":" + Integer.toString(minutes);
+                }
+
+
+                float percentage=(float)round(((float)durationsByTable[row+k+1]/durationsByTable[row])*1000)/10;
+
+                //set percentage, hours and name
+                if (percentage<10)
+                {
+                    bufferTable.append("0" + percentage + "%\t\t\t" + Duration + "\t\t\t" + childNameArray[j] + "\n");
+                }
+                else {                        bufferTable.append(percentage + "%\t\t\t" + Duration + "\t\t\t" + childNameArray[j] + "\n");
+                }
+                k++;
+            }
+        }
+
+        //Now fill with the Activities:
+        Table2Header.setText("Activities:\n\t\t%\t\t\tHours spent\t\tName");
+        //find out category ID.
+
+        //find all activity names(distinct)
+        //Cursor cursor2 = myDb.readActivityNamesByCategory(IDsByTable[row]);
+        Cursor cursor2 = myDb.readActivities();
+        StringBuffer buffer8 = new StringBuffer();
+
+
+        while (cursor2.moveToNext()) {
+            if (Integer.parseInt(cursor2.getString(2)) == IDsByTable[row]) {
+                buffer8.append(cursor2.getString(1) + "-");
+            }
+        }
+
+        String catNames = buffer8.toString();
+        String [] CatNames =catNames.split("-");
+
+                //delete duplicates:
+        CatNames = new HashSet<String>(Arrays.asList(CatNames)).toArray(new String[0]);
+        //fill table2 with percentage, duration and activity name.
+
+        for (int i =0; i<CatNames.length; i++)
+        {
+            //calculate duration and percentage of each activity:
+            cursor2.moveToFirst();
+            cursor2.moveToPrevious();
+
+            int duration = 0;
+
+            while (cursor2.moveToNext()) {
+                if (Integer.parseInt(cursor2.getString(2)) == IDsByTable[row] && cursor2.getString(1).equals(CatNames[i])) {
+                    duration = duration + Integer.parseInt(cursor2.getString(7));
+                }
+            }
+
+
+            int hours = duration / 60;
+            int minutes = duration - hours * 60;
+            String Duration = new String();
+            if (String.valueOf(hours).length() == 1 && String.valueOf(minutes).length() == 1) {
+                Duration = "0" + Integer.toString(hours) + ":0" + Integer.toString(minutes);
+            } else if (Integer.toString(hours).length() == 2 && Integer.toString(minutes).length() == 1) {
+                Duration = Integer.toString(hours) + ":0" + Integer.toString(minutes);
+            } else if (Integer.toString(hours).length() == 1 && Integer.toString(minutes).length() == 2) {
+                Duration = "0" + Integer.toString(hours) + ":" + Integer.toString(minutes);
+            } else {
+                Duration = Integer.toString(hours) + ":" + Integer.toString(minutes);
+            }
+
+            float percentage=(float)round(((float) duration /durationsByTable[row])*1000)/10;
+
+            if (percentage<10)
+            {
+                bufferTable2.append("0" + percentage + "%\t\t\t" + Duration + "\t\t\t" + CatNames[i] + "\n");
+            }
+            else {  bufferTable2.append(percentage + "%\t\t\t" + Duration + "\t\t\t" + CatNames[i] + "\n");
+            }
+        }
+        Table.setText(bufferTable.toString());
+        Table2.setText(bufferTable2.toString());
     }
 }
