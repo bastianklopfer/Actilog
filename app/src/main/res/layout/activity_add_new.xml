@@ -175,22 +175,24 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addCatBttn"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:clickable="true"
-        android:src="@drawable/ic_add_black_24dp"
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        app:rippleColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/chooseCat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toEndOf="@+id/chooseCat"
         app:layout_constraintTop_toTopOf="@+id/chooseCat"
-        app:layout_constraintVertical_bias="0.44"
-        app:srcCompat="@color/colorAccent"
+        app:layout_constraintVertical_bias="0.333"
+        app:backgroundTint="@android:color/black"
         tools:ignore="InvalidId" />
 
 </android.support.constraint.ConstraintLayout>

@@ -60,10 +60,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (firstRun) {
-            inserted = myDb.addCategory("Uni", "0");
             inserted = myDb.addCategory("Work", "0");
-            inserted = myDb.addCategory("Sport", "0");
-            inserted = myDb.addCategory("Freetime", "0");
+            inserted = myDb.addCategory("Recreation", "0");
         }
     }
 

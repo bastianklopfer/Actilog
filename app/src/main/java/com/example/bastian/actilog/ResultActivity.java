@@ -34,6 +34,7 @@ public class ResultActivity extends AppCompatActivity {
     String[] parentArray;
     int x; //so many categories have been selected
     int y; //so many categories are there, including child categories
+    int totalDuration;
 
     TextView tv11,tv21,tv31,tv41,tv51,tv61,tv71,tv81,tv91,tv101,tv111,tv121;
     TextView tv12,tv22,tv32,tv42,tv52,tv62,tv72,tv82,tv92,tv102,tv112,tv122;
@@ -94,11 +95,8 @@ public class ResultActivity extends AppCompatActivity {
         String startDate = getIntent().getStringExtra("START");
         String endDate = getIntent().getStringExtra("END");
 
-        startDate = String.valueOf(startDate.charAt(6))+String.valueOf(startDate.charAt(7)) + "."+ String.valueOf(startDate.charAt(4)) +String.valueOf(startDate.charAt(5)) + "."+ String.valueOf(startDate.charAt(0)) +String.valueOf(startDate.charAt(1)) + String.valueOf(startDate.charAt(2)) + String.valueOf(startDate.charAt(3));
-        endDate = String.valueOf(endDate.charAt(6))+String.valueOf(endDate.charAt(7)) + "."+ String.valueOf(endDate.charAt(4)) +String.valueOf(endDate.charAt(5)) + "."+ String.valueOf(endDate.charAt(0)) +String.valueOf(endDate.charAt(1)) + String.valueOf(endDate.charAt(2)) + String.valueOf(endDate.charAt(3));
 
 
-        datesTV.setText("Chosen categories:\n" + categories + "\nStart date:\t\t" + startDate + "\nEnd date:\t\t\t" +endDate);
 
         getData();
         displayData();
@@ -182,6 +180,8 @@ public class ResultActivity extends AppCompatActivity {
         //first, get the time spent on the categories:
         String startDate = getIntent().getStringExtra("START");
         String endDate = getIntent().getStringExtra("END");
+        String categories = getIntent().getStringExtra("CATS");
+
         Cursor cursor4 = myDb.getTimeSpentCategories(startDate,endDate);
         int [] catDurations = new int[99];
         y = idArray.length;
@@ -194,11 +194,28 @@ public class ResultActivity extends AppCompatActivity {
             cursor4.moveToFirst();
             cursor4.moveToPrevious();
         }
-        int totalDuration = 0;
+        totalDuration = 0;
         for (int i=0; i<y; i++){
             totalDuration = totalDuration + catDurations[i];
             parentDurations[i] = catDurations[i];
         }
+        int hours = totalDuration / 60;
+        int minutes = totalDuration - hours * 60;
+        String Total;
+        if (String.valueOf(hours).length() == 1 && String.valueOf(minutes).length() == 1) {
+            Total = "\t\t\t0" + Integer.toString(hours) + ":0" + Integer.toString(minutes);
+        } else if (Integer.toString(hours).length() == 2 && Integer.toString(minutes).length() == 1) {
+            Total = "\t\t\t" +Integer.toString(hours) + ":0" + Integer.toString(minutes);
+        } else if (Integer.toString(hours).length() == 1 && Integer.toString(minutes).length() == 2) {
+            Total = "\t\t\t0" + Integer.toString(hours) + ":" + Integer.toString(minutes);
+        } else {
+            Total = "\t\t\t" +Integer.toString(hours) + ":" + Integer.toString(minutes);
+        }
+
+        startDate = String.valueOf(startDate.charAt(6))+String.valueOf(startDate.charAt(7)) + "."+ String.valueOf(startDate.charAt(4)) +String.valueOf(startDate.charAt(5)) + "."+ String.valueOf(startDate.charAt(0)) +String.valueOf(startDate.charAt(1)) + String.valueOf(startDate.charAt(2)) + String.valueOf(startDate.charAt(3));
+        endDate = String.valueOf(endDate.charAt(6))+String.valueOf(endDate.charAt(7)) + "."+ String.valueOf(endDate.charAt(4)) +String.valueOf(endDate.charAt(5)) + "."+ String.valueOf(endDate.charAt(0)) +String.valueOf(endDate.charAt(1)) + String.valueOf(endDate.charAt(2)) + String.valueOf(endDate.charAt(3));
+        datesTV.setText("Chosen categories:\n" + categories + "\nStart date:\t\t\t\t\t\t\t\t" + startDate + "\nEnd date:\t\t\t\t\t\t\t\t\t" +endDate + "\nTotal hours logged: " + Total);
+
 
         //Define a variable that points to the idString[], where to select the duration:
         int k = x;
@@ -616,7 +633,10 @@ public class ResultActivity extends AppCompatActivity {
 
         //find all activity names(distinct)
         //Cursor cursor2 = myDb.readActivityNamesByCategory(IDsByTable[row]);
-        Cursor cursor2 = myDb.readActivities();
+        String startDate = getIntent().getStringExtra("START");
+        String endDate = getIntent().getStringExtra("END");
+
+        Cursor cursor2 = myDb.getTimeSpentCategories(startDate, endDate );
         StringBuffer buffer8 = new StringBuffer();
 
 

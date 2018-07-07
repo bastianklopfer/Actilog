@@ -9,7 +9,7 @@
     <TableLayout
         android:id="@+id/tableLayout2"
         android:layout_width="360dp"
-        android:layout_height="417dp"
+        android:layout_height="401dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="20dp"
@@ -32,7 +32,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\t%\t\t\n"
+                android:text="\t%\t\t"
                 android:textSize="16dp"
                 android:textStyle="bold" />
 
@@ -74,10 +74,10 @@
 
             <TextView
                 android:id="@+id/textView11"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -99,10 +99,10 @@
 
             <TextView
                 android:id="@+id/textView21"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -124,10 +124,10 @@
 
             <TextView
                 android:id="@+id/textView31"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -149,10 +149,10 @@
 
             <TextView
                 android:id="@+id/textView41"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -174,10 +174,10 @@
 
             <TextView
                 android:id="@+id/textView51"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -199,10 +199,10 @@
 
             <TextView
                 android:id="@+id/textView61"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -224,10 +224,10 @@
 
             <TextView
                 android:id="@+id/textView71"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -249,10 +249,10 @@
 
             <TextView
                 android:id="@+id/textView81"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -274,10 +274,10 @@
 
             <TextView
                 android:id="@+id/textView91"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -299,10 +299,10 @@
 
             <TextView
                 android:id="@+id/textView101"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -324,10 +324,10 @@
 
             <TextView
                 android:id="@+id/textView111"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
 
@@ -349,10 +349,10 @@
 
             <TextView
                 android:id="@+id/textView121"
-                android:onClick="onClick"
-                android:clickable="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:textSize="18dp" />
         </TableRow>
     </TableLayout>
@@ -370,6 +370,7 @@
         android:text="Your result:"
         android:textSize="25dp"
         android:textStyle="bold"
+        android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -385,6 +386,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:textColor="@color/colorAccent"
         android:text="---"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
         app:layout_constraintEnd_toEndOf="parent"
